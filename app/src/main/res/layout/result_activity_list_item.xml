@@ -126,8 +126,9 @@
         android:textStyle="bold" />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="vertical">
+        android:layout_height="80dp"
+        android:orientation="vertical"
+        android:background="@drawable/border">
         <TextView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/local_mf1_name"
             android:layout_width="wrap_content"
@@ -164,8 +165,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="vertical">
+        android:layout_height="80dp"
+        android:orientation="vertical"
+        android:background="@drawable/border">
         <TextView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/local_mf2_name"
             android:layout_width="wrap_content"
@@ -202,8 +204,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="vertical">
+        android:layout_height="80dp"
+        android:orientation="vertical"
+        android:background="@drawable/border">
         <TextView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/local_mf3_name"
             android:layout_width="wrap_content"

@@ -56,8 +56,8 @@ public class ResultActivityListAdapter extends ArrayAdapter{
         label.setText("Maturity Amount :                " + String.valueOf(solution.requirement.final_amount));
         MutualFund mf;
         TreeMap<Integer, String> risk_inverse_map = new TreeMap<>();
-        risk_inverse_map.put(0, "low"); risk_inverse_map.put(1, "medium"); risk_inverse_map.put(2,
-                "high");
+        risk_inverse_map.put(0, "Low"); risk_inverse_map.put(1, "Medium"); risk_inverse_map.put(2,
+                "High");
         TreeMap<Integer, String> rating_map = new TreeMap<>();
         rating_map.put(1, "*"); rating_map.put(2, "**");
         rating_map.put(3, "***"); rating_map.put(4, "****");
@@ -72,7 +72,7 @@ public class ResultActivityListAdapter extends ArrayAdapter{
             label = view.findViewById(R.id.local_mf1_rating);
             label.setText(rating_map.get(mf.rating));
             label = view.findViewById(R.id.local_mf1_proportion);
-            label.setText(Math.round(proportions_list.get(0))* 100+"%");
+            label.setText(Math.round(proportions_list.get(0)* 100)+"%");
         }
         if(mutual_fund_list.size() >= 2)
         {
@@ -84,7 +84,7 @@ public class ResultActivityListAdapter extends ArrayAdapter{
             label = view.findViewById(R.id.local_mf2_rating);
             label.setText(rating_map.get(mf.rating));
             label = view.findViewById(R.id.local_mf2_proportion);
-            label.setText(Math.round(proportions_list.get(1))* 100+"%");
+            label.setText(Math.round(proportions_list.get(1)* 100)+"%");
         }
         if(mutual_fund_list.size() >= 3)
         {
@@ -96,7 +96,7 @@ public class ResultActivityListAdapter extends ArrayAdapter{
             label = view.findViewById(R.id.local_mf3_rating);
             label.setText(rating_map.get(mf.rating));
             label = view.findViewById(R.id.local_mf3_proportion);
-            label.setText(Math.round(proportions_list.get(2))* 100+"%");
+            label.setText(Math.round(proportions_list.get(2)* 100)+"%");
         }
         if(mutual_fund_list.size() >= 4)
             Toast.makeText(getContext(), "Only 3 funds displayed in a portfolio", Toast.LENGTH_SHORT)
