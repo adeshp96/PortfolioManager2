@@ -25,7 +25,7 @@ public class RequirementsListAdapter extends ArrayAdapter<Requirement> {
         label = view.findViewById(R.id.requirement_list_horizon);
         label.setText(""+requirement.horizon + " years");
         label = view.findViewById(R.id.requirement_list_final_amount);
-        label.setText("Rs. "+requirement.final_amount);
+        label.setText("Maturity Amount : Rs. "+requirement.final_amount);
         return view;
     }
 

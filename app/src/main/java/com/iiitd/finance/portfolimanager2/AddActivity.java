@@ -171,7 +171,7 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
             horizon = Integer.parseInt(horizon_edit_text.getText().toString());
             EditText present_amount_edit_text = findViewById(R.id.add_activity_present_amount);
             present_amount = Integer.parseInt(present_amount_edit_text.getText().toString());
-            TextView final_amount_view_text = findViewById(R.id.add_activity_present_amount);
+            TextView final_amount_view_text = findViewById(R.id.add_activity_final_amount);
             final_amount = Integer.parseInt(final_amount_view_text.getText().toString());
 
         } catch (Exception e) {
