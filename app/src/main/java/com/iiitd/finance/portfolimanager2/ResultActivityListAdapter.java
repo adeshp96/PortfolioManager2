@@ -38,10 +38,10 @@ public class ResultActivityListAdapter extends ArrayAdapter{
         label.setText("Investment per Month :  " + solution.sip_investment_amount.toString());
         label = view.findViewById(R.id.sip_local_total_deposits);
         float sip_total_deposit = solution.sip_investment_amount * 12 *solution.requirement.horizon;
-        label.setText("Total Deposits :            " + String.valueOf(sip_total_deposit));
+        label.setText("Total Deposits :               " + String.valueOf(sip_total_deposit));
         label = view.findViewById(R.id.sip_local_total_return);
         float sip_return = solution.requirement.final_amount - sip_total_deposit;
-        label.setText("Total Returns :              " + String.valueOf(sip_return));
+        label.setText("Total Returns :                 " + String.valueOf(sip_return));
         label = view.findViewById(R.id.sip_local_maturity_amount);
         label.setText("Maturity Amount :          " + String.valueOf(solution.requirement.final_amount));
 
@@ -50,7 +50,7 @@ public class ResultActivityListAdapter extends ArrayAdapter{
         label.setText("Investment (Total Deposit) : " + solution.lumpsum_investment_amount.toString());
         label = view.findViewById(R.id.ota_local_total_return);
         float ota_return = solution.requirement.final_amount - solution.lumpsum_investment_amount;
-        label.setText("Total Returns :                  " + String.valueOf(ota_return));
+        label.setText("Total Returns :                       " + String.valueOf(ota_return));
         label = view.findViewById(R.id.ota_local_maturity_amount);
         label.setText("Maturity Amount :                " + String.valueOf(solution.requirement.final_amount));
         if(mutual_fund_list.size() >= 1)

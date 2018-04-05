@@ -2,31 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     android:gravity="center"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="@drawable/border"
     tools:context="com.iiitd.finance.portfolimanager2.AddActivity">
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:id="@+id/add_activity_relative_purpose">
         <TextView
             android:id="@+id/purpose_text"
-            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_alignParentLeft="true"
-            android:text="           Purpose:           "/>
+            android:text="Purpose:                  "/>
 
         <Spinner
             android:id="@+id/add_activity_purpose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/purpose_text"
             android:spinnerMode="dropdown"/>
 
-    </RelativeLayout>
+    </LinearLayout>
     <!--<RelativeLayout-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content">-->
@@ -48,93 +48,85 @@
             <!--android:hint="Enter returns" />-->
     <!--</RelativeLayout>-->
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:id="@+id/add_activity_relative_risk">
         <TextView
             android:id="@+id/risk_text"
-            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_alignParentLeft="true"
-            android:text="              Risk:           "/>
+            android:text="Risk:                          "/>
 
         <Spinner
             android:id="@+id/add_activity_risk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/risk_text"
             android:spinnerMode="dropdown"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:id="@+id/add_activity_relative_horizon">
         <TextView
             android:id="@+id/horizon_text"
-            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_alignParentLeft="true"
-            android:text="              Horizon:    "/>
+            android:text="Horizon:                   "/>
 
         <EditText
             android:id="@+id/add_activity_horizon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/horizon_text"
             android:inputType="number"
             android:hint=" Enter in years" />
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:id="@+id/add_activity_relative_present_amount">
         <TextView
             android:id="@+id/present_amount_text"
-            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_alignParentLeft="true"
-            android:text="       Present Amount:    "/>
+            android:text="Present Amount:    "/>
 
         <EditText
             android:id="@+id/add_activity_present_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/present_amount_text"
             android:inputType="number"
             android:hint=" Enter in years" />
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:id="@+id/add_activity_relative_final_amount">
         <TextView
             android:id="@+id/final_amount_text"
-            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_alignParentLeft="true"
-            android:text="       Final Amount:    "/>
+            android:text="Maturity Amount:         "/>
 
         <TextView
             android:id="@+id/add_activity_final_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/final_amount_text"
             android:inputType="number"
              />
-    </RelativeLayout>
+    </LinearLayout>
 
 
 
