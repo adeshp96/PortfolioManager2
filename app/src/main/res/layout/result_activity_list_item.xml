@@ -18,17 +18,25 @@
         android:padding="10dip"
         android:textSize="16dip"
         android:textStyle="bold" />
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:text="INVESTMENT OPTIONS:"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dip"
+        android:textSize="22dip"
+        android:textStyle="bold" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginLeft="20dp"
         android:background="@drawable/border">
         <TextView xmlns:android="http://schemas.android.com/apk/res/android"
             android:text="Systematic Investment Plan"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:padding="10dip"
-            android:textSize="22dip"
+            android:textSize="20dip"
             android:textStyle="bold" />
 
         <TextView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -69,13 +77,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginLeft="20dp"
         android:background="@drawable/border">
         <TextView xmlns:android="http://schemas.android.com/apk/res/android"
             android:text="One Time Investment Plan"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:padding="10dip"
-            android:textSize="22dip"
+            android:textSize="20dip"
             android:textStyle="bold" />
 
         <TextView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -113,7 +122,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:padding="10dip"
-        android:textSize="16dip"
+        android:textSize="22dip"
         android:textStyle="bold" />
     <RelativeLayout
         android:layout_width="match_parent"
