@@ -35,17 +35,17 @@ public class ResultActivityListAdapter extends ArrayAdapter{
         label.setText("Lumpsum:" + solution.lumpsum_investment_amount.toString());
         if(mutual_fund_list.size() >= 1)
         {
-            label = (TextView) view.findViewById(R.id.local_mf1);
+            label = view.findViewById(R.id.local_mf1);
             label.setText(mutual_fund_list.get(0).toString() + " " + proportions_list.get(0));
         }
         if(mutual_fund_list.size() >= 2)
         {
-            label = (TextView) view.findViewById(R.id.local_mf2);
+            label = view.findViewById(R.id.local_mf2);
             label.setText(mutual_fund_list.get(1).toString() + " " + proportions_list.get(1));
         }
         if(mutual_fund_list.size() >= 3)
         {
-            label = (TextView) view.findViewById(R.id.local_mf3);
+            label = view.findViewById(R.id.local_mf3);
             label.setText(mutual_fund_list.get(2).toString() + " " + proportions_list.get(2));
         }
         if(mutual_fund_list.size() >= 4)

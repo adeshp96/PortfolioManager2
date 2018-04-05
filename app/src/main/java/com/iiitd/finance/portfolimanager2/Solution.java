@@ -16,13 +16,13 @@ public class Solution {
             mutual_funds){
         Solution solution = new Solution();
         solution.requirement = requirement;
-        for (int i = 0; i < Math.min(mutual_funds.size(), 2); i++){
+        for (int i = 0; i < Math.min(mutual_funds.size(), 3); i++){
             solution.mutual_funds.add(mutual_funds.get(i));
             solution.proportions.add(0.33f);
             solution.actual_returns = solution.proportions.get(i) * solution.mutual_funds.get(i)
                     .returns;
         }
-        solution.lumpsum_investment_amount = requirement.final_amount/solution.actual_returns;
+        solution.lumpsum_investment_amount = requirement.final_amount/(solution.actual_returns + 1);
         /*A = P * [{(1+i)^n – 1 }/i]
         A = P * P2
         A = final amount
@@ -35,7 +35,6 @@ public class Solution {
         int n = (solution.requirement.horizon * 12);
         Float p2 = (float)(Math.pow(i + 1, n) - 1)/i;
         solution.sip_investment_amount = solution.requirement.final_amount/p2;
-        solution.actual_returns += 1;
         return solution;
     }
 
