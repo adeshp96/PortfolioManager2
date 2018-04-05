@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -90,12 +91,12 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
         });
 
         final EditText horizon_edit_text = findViewById(R.id.add_activity_horizon);
-        final RelativeLayout relative_layout_present_amount = findViewById(R.id
+        final LinearLayout linear_layout_present_amount = findViewById(R.id
                 .add_activity_relative_present_amount);
-        final RelativeLayout relative_layout_final_amount = findViewById(R.id
+        final LinearLayout linear_layout_final_amount = findViewById(R.id
                 .add_activity_relative_final_amount);
-        relative_layout_final_amount.setVisibility(View.GONE);
-        relative_layout_present_amount.setVisibility(View.GONE);
+        linear_layout_final_amount.setVisibility(View.GONE);
+        linear_layout_present_amount.setVisibility(View.GONE);
         horizon_edit_text.addTextChangedListener(new TextWatcher() {
             //Reference: https://stackoverflow.com/questions/20824634/android-on-text-change-listener
             @Override
@@ -112,12 +113,12 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
                 try{
                     if(horizon_edit_text.getText().toString().length() == 0) {
                         final_amount_text_view.setText("");
-                        relative_layout_final_amount.setVisibility(View.GONE);
-                        relative_layout_present_amount.setVisibility(View.GONE);
+                        linear_layout_final_amount.setVisibility(View.GONE);
+                        linear_layout_present_amount.setVisibility(View.GONE);
                         return;
                     }
-                    relative_layout_final_amount.setVisibility(View.VISIBLE);
-                    relative_layout_present_amount.setVisibility(View.VISIBLE);
+                    linear_layout_final_amount.setVisibility(View.VISIBLE);
+                    linear_layout_present_amount.setVisibility(View.VISIBLE);
                     EditText horizon_edit_text = findViewById(R.id.add_activity_horizon);
                     if(present_amount_edit_text.getText().toString().length() == 0)
                     {
