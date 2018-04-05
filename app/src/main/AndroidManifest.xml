@@ -21,7 +21,7 @@
             android:label="@string/title_activity_add"
             android:parentActivityName=".MainActivity"/>
         <activity
-            android:name=".ComputeActivity"
+            android:name=".ResultActivity"
             android:label="@string/title_activity_compute"
             android:parentActivityName=".MainActivity"/>
     </application>

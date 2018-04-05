@@ -110,8 +110,8 @@ class Manager{
         int risk = requirement.risk;
         float horizon = requirement.horizon;
         ArrayList <MutualFund> output = new ArrayList<>();
-        output.add(new MutualFund("papapa","MC", 0.12, 0));
-        output.add(new MutualFund("lalala", "LC", 0.11, 1));
+        output.add(new MutualFund("papapa","MC", 0.12f, 0));
+        output.add(new MutualFund("lalala", "LC", 0.11f, 1));
         ArrayList<String> categories = new ArrayList<>();
         String type;
         if(horizon <= 3){

@@ -1,21 +1,14 @@
 package com.iiitd.finance.portfolimanager2;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-
-import static android.content.ContentValues.TAG;
 
 public class MainActivity extends Activity {
     private static String TAG = "MainActivity";
@@ -47,7 +40,7 @@ public class MainActivity extends Activity {
                     Toast.makeText(this, "Empty list", Toast.LENGTH_SHORT).show();
                     return true;
                 }
-                Intent intent2 = new Intent(this, ComputeActivity.class);
+                Intent intent2 = new Intent(this, ResultActivity.class);
                 Bundle b = new Bundle();
                 b.putSerializable("requirements", adapter.requirements);
                 intent2.putExtra("bundle_requirements", b);

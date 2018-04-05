@@ -2,12 +2,12 @@ package com.iiitd.finance.portfolimanager2;
 
 public class MutualFund implements  Comparable<MutualFund>{
     public String name;
-    public double returns;
+    public float returns;
     int risk;
     int rating;
     String category;
 
-    public MutualFund(String name, String category, double returns, int rating) {
+    public MutualFund(String name, String category, float returns, int rating) {
         this.name = name;
         this.category = category;
         this.returns = returns;
