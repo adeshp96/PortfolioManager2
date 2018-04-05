@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PortfoliManager2</string>
+    <string name="title_activity_start">Home</string>
+    <string name="title_activity_add">Add Requirement</string>
+    <string name="add_actiivty_submit">Submit</string>
+    <string name="title_activity_compute">Results</string>
+</resources>
