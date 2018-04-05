@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 /**
  * Created by adesh on 1/4/18.
@@ -53,20 +54,49 @@ public class ResultActivityListAdapter extends ArrayAdapter{
         label.setText("Total Returns :                  " + String.valueOf(ota_return));
         label = view.findViewById(R.id.ota_local_maturity_amount);
         label.setText("Maturity Amount :                " + String.valueOf(solution.requirement.final_amount));
+        MutualFund mf;
+        TreeMap<Integer, String> risk_inverse_map = new TreeMap<>();
+        risk_inverse_map.put(0, "low"); risk_inverse_map.put(1, "medium"); risk_inverse_map.put(2,
+                "high");
+        TreeMap<Integer, String> rating_map = new TreeMap<>();
+        rating_map.put(1, "*"); rating_map.put(2, "**");
+        rating_map.put(3, "***"); rating_map.put(4, "****");
+        rating_map.put(4, "****");
         if(mutual_fund_list.size() >= 1)
         {
-            label = view.findViewById(R.id.local_mf1);
-            label.setText(mutual_fund_list.get(0).toString() + " " + proportions_list.get(0));
+            mf = mutual_fund_list.get(0);
+            label = view.findViewById(R.id.local_mf1_name);
+            label.setText(mf.name);
+            label = view.findViewById(R.id.local_mf1_risk);
+            label.setText("Risk: "+risk_inverse_map.get(mf.risk));
+            label = view.findViewById(R.id.local_mf1_rating);
+            label.setText(rating_map.get(mf.rating));
+            label = view.findViewById(R.id.local_mf1_proportion);
+            label.setText(Math.round(proportions_list.get(0))* 100+"%");
         }
         if(mutual_fund_list.size() >= 2)
         {
-            label = view.findViewById(R.id.local_mf2);
-            label.setText(mutual_fund_list.get(1).toString() + " " + proportions_list.get(1));
+            mf = mutual_fund_list.get(1);
+            label = view.findViewById(R.id.local_mf2_name);
+            label.setText(mf.name);
+            label = view.findViewById(R.id.local_mf2_risk);
+            label.setText("Risk: "+risk_inverse_map.get(mf.risk));
+            label = view.findViewById(R.id.local_mf2_rating);
+            label.setText(rating_map.get(mf.rating));
+            label = view.findViewById(R.id.local_mf2_proportion);
+            label.setText(Math.round(proportions_list.get(1))* 100+"%");
         }
         if(mutual_fund_list.size() >= 3)
         {
-            label = view.findViewById(R.id.local_mf3);
-            label.setText(mutual_fund_list.get(2).toString() + " " + proportions_list.get(2));
+            mf = mutual_fund_list.get(2);
+            label = view.findViewById(R.id.local_mf3_name);
+            label.setText(mf.name);
+            label = view.findViewById(R.id.local_mf3_risk);
+            label.setText("Risk: "+risk_inverse_map.get(mf.risk));
+            label = view.findViewById(R.id.local_mf3_rating);
+            label.setText(rating_map.get(mf.rating));
+            label = view.findViewById(R.id.local_mf3_proportion);
+            label.setText(Math.round(proportions_list.get(2))* 100+"%");
         }
         if(mutual_fund_list.size() >= 4)
             Toast.makeText(getContext(), "Only 3 funds displayed in a portfolio", Toast.LENGTH_SHORT)
