@@ -1,6 +1,7 @@
 package com.iiitd.finance.portfolimanager2;
 
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.app.Activity;
 import android.text.Editable;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,6 +51,7 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
 
         final EditText present_amount_edit_text = findViewById(R.id.add_activity_present_amount);
         final TextView final_amount_text_view = findViewById(R.id.add_activity_final_amount);
+
         present_amount_edit_text.addTextChangedListener(new TextWatcher() {
             //Reference: https://stackoverflow.com/questions/20824634/android-on-text-change-listener
             @Override
@@ -63,16 +66,12 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
                 try{
-                    if(present_amount_edit_text.getText().toString().length() == 0)
-                        return;
-
-                    EditText horizon_edit_text = findViewById(R.id.add_activity_horizon);
-                    if(horizon_edit_text.getText().toString().length() == 0)
-                    {
-                        Toast.makeText(getApplicationContext(), "Enter horizon", Toast
-                                .LENGTH_SHORT).show();
+                    if(present_amount_edit_text.getText().toString().length() == 0) {
+                        final_amount_text_view.setText("");
                         return;
                     }
+
+                    EditText horizon_edit_text = findViewById(R.id.add_activity_horizon);
                     int temp_horizon = Integer.parseInt(horizon_edit_text.getText().toString());
                     Integer present_amount = Integer.parseInt(present_amount_edit_text.getText()
                             .toString());
@@ -89,8 +88,14 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
                 }
             }
         });
-        present_amount_edit_text.setEnabled(false);
+
         final EditText horizon_edit_text = findViewById(R.id.add_activity_horizon);
+        final RelativeLayout relative_layout_present_amount = findViewById(R.id
+                .add_activity_relative_present_amount);
+        final RelativeLayout relative_layout_final_amount = findViewById(R.id
+                .add_activity_relative_final_amount);
+        relative_layout_final_amount.setVisibility(View.GONE);
+        relative_layout_present_amount.setVisibility(View.GONE);
         horizon_edit_text.addTextChangedListener(new TextWatcher() {
             //Reference: https://stackoverflow.com/questions/20824634/android-on-text-change-listener
             @Override
@@ -106,10 +111,13 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
                                       int before, int count) {
                 try{
                     if(horizon_edit_text.getText().toString().length() == 0) {
-                        present_amount_edit_text.setEnabled(false);
+                        final_amount_text_view.setText("");
+                        relative_layout_final_amount.setVisibility(View.GONE);
+                        relative_layout_present_amount.setVisibility(View.GONE);
                         return;
                     }
-                    present_amount_edit_text.setEnabled(true);
+                    relative_layout_final_amount.setVisibility(View.VISIBLE);
+                    relative_layout_present_amount.setVisibility(View.VISIBLE);
                     EditText horizon_edit_text = findViewById(R.id.add_activity_horizon);
                     if(present_amount_edit_text.getText().toString().length() == 0)
                     {
