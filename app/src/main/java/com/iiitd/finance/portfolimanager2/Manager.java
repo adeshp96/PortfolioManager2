@@ -177,9 +177,9 @@ class Manager{
                     if(mf.risk <= risk)
                         output.add(mf);
                 }
-                else
-                    System.out.println("Category different " + categories.get(0) + " " + mf
-                            .category);
+//                else
+//                    System.out.println("Category different " + categories.get(0) + " " + mf
+//                            .category);
             }
         }
         if(type.equals("debt")){
@@ -189,9 +189,9 @@ class Manager{
                     if(mf.risk <= risk)
                         output.add(mf);
                 }
-                else
-                    System.out.println("Category different " + categories.get(0) + " " + mf
-                            .category);
+//                else
+//                    System.out.println("Category different " + categories.get(0) + " " + mf
+//                            .category);
             }
         }
         System.out.println("output size " + output.size());

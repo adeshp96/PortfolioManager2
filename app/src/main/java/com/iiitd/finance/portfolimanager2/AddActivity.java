@@ -11,7 +11,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class AddActivity extends Activity implements AdapterView.OnItemSelectedListener {
-    float returns, horizon;
+    float returns;
+    int horizon;
     int risk;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
             EditText returns_edit_text = findViewById(R.id.add_activity_returns);
             returns = Float.parseFloat(returns_edit_text.getText().toString());
             EditText horizon_edit_text = findViewById(R.id.add_activity_horizon);
-            horizon = Float.parseFloat(horizon_edit_text.getText().toString());
+            horizon = Integer.parseInt(horizon_edit_text.getText().toString());
         }
         catch(Exception e){
             Toast.makeText(this, "Please enter number only in the fields", Toast.LENGTH_SHORT).show();

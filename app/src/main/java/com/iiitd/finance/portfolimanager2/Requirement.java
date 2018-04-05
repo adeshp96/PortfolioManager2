@@ -2,18 +2,20 @@ package com.iiitd.finance.portfolimanager2;
 
 import java.io.Serializable;
 public class Requirement implements Serializable {
-    public float returns, horizon;
+    public float returns;
+    public int horizon;
     public int risk;
     public String purpose;
-    public int final_amount, present_amount;
+    public int final_amount = 100000, present_amount;
 
-    public Requirement(float returns, int risk, float horizon) {
+    public Requirement(float returns, int risk, int horizon) {
         this.returns = returns;
         this.risk = risk;
         this.horizon = horizon;
     }
 
-    public Requirement(float returns, float horizon, int risk, String purpose, int final_amount, int present_amount) {
+    public Requirement(float returns, int horizon, int risk, String purpose, int final_amount, int
+            present_amount) {
         this.returns = returns;
         this.horizon = horizon;
         this.risk = risk;

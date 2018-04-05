@@ -26,8 +26,13 @@ public class ResultActivityListAdapter extends ArrayAdapter{
         ArrayList <Float> proportions_list = solution.proportions;
         if (view == null)
             view = LayoutInflater.from(getContext()).inflate(R.layout.result_activity_list_item, parent, false);
-        TextView label = (TextView) view.findViewById(R.id.requirement);
+        TextView label;
+        label = view.findViewById(R.id.requirement);
         label.setText(solution.requirement.toString());
+        label = view.findViewById(R.id.local_sip);
+        label.setText("SIP: " + solution.sip_investment_amount.toString());
+        label = view.findViewById(R.id.local_lumpsum);
+        label.setText("Lumpsum:" + solution.lumpsum_investment_amount.toString());
         if(mutual_fund_list.size() >= 1)
         {
             label = (TextView) view.findViewById(R.id.local_mf1);
@@ -40,7 +45,7 @@ public class ResultActivityListAdapter extends ArrayAdapter{
         }
         if(mutual_fund_list.size() >= 3)
         {
-            label = (TextView) view.findViewById(R.id.local_mf2);
+            label = (TextView) view.findViewById(R.id.local_mf3);
             label.setText(mutual_fund_list.get(2).toString() + " " + proportions_list.get(2));
         }
         if(mutual_fund_list.size() >= 4)

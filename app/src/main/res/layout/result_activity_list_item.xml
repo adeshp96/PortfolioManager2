@@ -12,6 +12,22 @@
         android:textStyle="bold" >
     </TextView>
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/local_sip"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dip"
+        android:textSize="16dip"
+        android:textStyle="bold" >
+    </TextView>
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/local_lumpsum"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dip"
+        android:textSize="16dip"
+        android:textStyle="bold" >
+    </TextView>
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/local_mf1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -21,6 +37,14 @@
     </TextView>
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/local_mf2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dip"
+        android:textSize="16dip"
+        android:textStyle="bold" >
+    </TextView>
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/local_mf3"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:padding="10dip"
