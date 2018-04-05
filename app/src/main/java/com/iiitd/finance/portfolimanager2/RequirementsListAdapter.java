@@ -19,8 +19,13 @@ public class RequirementsListAdapter extends ArrayAdapter<Requirement> {
         Requirement requirement = getItem(position);
         if (view == null)
             view = LayoutInflater.from(getContext()).inflate(R.layout.requirements_list_item, parent, false);
-        TextView label = (TextView) view.findViewById(R.id.label);
-        label.setText(requirement.toString());
+        TextView label;
+        label = view.findViewById(R.id.requirement_list_purpose);
+        label.setText(requirement.purpose);
+        label = view.findViewById(R.id.requirement_list_horizon);
+        label.setText(""+requirement.horizon + " years");
+        label = view.findViewById(R.id.requirement_list_final_amount);
+        label.setText("Rs. "+requirement.final_amount);
         return view;
     }
 

@@ -14,8 +14,8 @@ public class Requirement implements Serializable {
         this.horizon = horizon;
     }
 
-    public Requirement(float returns, int horizon, int risk, String purpose, int final_amount, int
-            present_amount) {
+    public Requirement(float returns, int risk, int horizon, String purpose, int
+            present_amount, int final_amount) {
         this.returns = returns;
         this.horizon = horizon;
         this.risk = risk;

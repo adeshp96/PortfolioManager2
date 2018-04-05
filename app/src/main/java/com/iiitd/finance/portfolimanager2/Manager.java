@@ -131,7 +131,8 @@ class Manager{
                 categories.add("EQ-MC");
             }
             else
-                throw new RuntimeException("Requirement cannot be understood");
+                throw new RuntimeException("Requirement cannot be understood. Risk is " + risk +
+                        " for requirement " + requirement);
         }
         else if(horizon <= 6){
             if(risk == 0){

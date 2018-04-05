@@ -8,28 +8,50 @@
     tools:context="com.iiitd.finance.portfolimanager2.AddActivity">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/add_activity_relative_purpose">
         <TextView
-            android:id="@+id/return_text"
+            android:id="@+id/purpose_text"
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
             android:layout_alignParentLeft="true"
-            android:text="              Returns:    "/>
+            android:text="           Purpose:           "/>
 
-        <EditText
-            android:id="@+id/add_activity_returns"
+        <Spinner
+            android:id="@+id/add_activity_purpose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/return_text"
-            android:inputType="number"
-            android:hint="Enter returns" />
+            android:layout_toRightOf="@id/purpose_text"
+            android:spinnerMode="dropdown"/>
+
     </RelativeLayout>
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<TextView-->
+            <!--android:id="@+id/return_text"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="25dp"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:text="              Returns:    "/>-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/add_activity_returns"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toRightOf="@id/return_text"-->
+            <!--android:inputType="number"-->
+            <!--android:hint="Enter returns" />-->
+    <!--</RelativeLayout>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/add_activity_relative_risk">
         <TextView
             android:id="@+id/risk_text"
             android:layout_centerHorizontal="true"
@@ -50,7 +72,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/add_activity_relative_horizon">
         <TextView
             android:id="@+id/horizon_text"
             android:layout_centerHorizontal="true"
@@ -68,6 +91,53 @@
             android:inputType="number"
             android:hint=" Enter in years" />
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_activity_relative_present_amount">
+        <TextView
+            android:id="@+id/present_amount_text"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_alignParentLeft="true"
+            android:text="       Present Amount:    "/>
+
+        <EditText
+            android:id="@+id/add_activity_present_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/present_amount_text"
+            android:inputType="number"
+            android:hint=" Enter in years" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_activity_relative_final_amount">
+        <TextView
+            android:id="@+id/final_amount_text"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_alignParentLeft="true"
+            android:text="       Final Amount:    "/>
+
+        <TextView
+            android:id="@+id/add_activity_final_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/final_amount_text"
+            android:inputType="number"
+            android:enabled="false"
+             />
+    </RelativeLayout>
+
+
 
     <Button
         android:layout_height="wrap_content"
