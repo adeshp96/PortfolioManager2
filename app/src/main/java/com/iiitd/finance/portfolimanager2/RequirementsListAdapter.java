@@ -15,7 +15,7 @@ public class RequirementsListAdapter extends ArrayAdapter<Requirement> {
         super(context, 0, objects);
     }
     @Override
-    public View getView(int position, View view, ViewGroup parent) {
+    public View getView(int position,View view, ViewGroup parent) {
         Requirement requirement = getItem(position);
         if (view == null)
             view = LayoutInflater.from(getContext()).inflate(R.layout.requirements_list_item, parent, false);

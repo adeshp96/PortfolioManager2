@@ -54,11 +54,11 @@ class Manager{
                 Integer rating = ratings_map.get(rating_string);
                 String category= line.split(",")[2];
                 category = category.substring(1, category.length() - 1).trim();
-                String returns_string = line.split(",")[5];
+                String returns_string = line.split(",")[6];
                 returns_string = returns_string.substring(1, returns_string.length() - 1);
                 if(returns_string.equals("-"))
                     continue;
-                Float returns = Float.parseFloat(returns_string);
+                Float returns = (float)Math.cbrt(1 + (Float.parseFloat(returns_string)/100));
 //                returns = Math.cbrt((returns/100) + 1) - 1;
 //                returns = Math.round(returns * 100.0) / 100.0;
                 MutualFund mf = new MutualFund(name, category, returns, rating);

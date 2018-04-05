@@ -1,6 +1,7 @@
 package com.iiitd.finance.portfolimanager2;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 
 public class ResultActivityListAdapter extends ArrayAdapter{
     ArrayList<Solution> solutions = new ArrayList<Solution>();
+    static String TAG = "ResultActivityListAdapter";
     public ResultActivityListAdapter(Context context) {
         super(context, 0);
     }
