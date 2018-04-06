@@ -7,8 +7,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -51,7 +53,8 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
 
         final EditText present_amount_edit_text = findViewById(R.id.add_activity_present_amount);
         final TextView final_amount_text_view = findViewById(R.id.add_activity_final_amount);
-
+        final Button submit_button = findViewById(R.id.add_activity_submit_button);
+        submit_button.setVisibility(View.GONE);
         present_amount_edit_text.addTextChangedListener(new TextWatcher() {
             //Reference: https://stackoverflow.com/questions/20824634/android-on-text-change-listener
             @Override
@@ -68,6 +71,7 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
                 try{
                     if(present_amount_edit_text.getText().toString().length() == 0) {
                         final_amount_text_view.setText("");
+                        submit_button.setVisibility(View.GONE);
                         return;
                     }
 
@@ -78,6 +82,7 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
                     Integer final_amount = Math.round((int)(Math.pow(inflation_rate, temp_horizon)
                             * present_amount));
                     final_amount_text_view.setText(""+final_amount);
+                    submit_button.setVisibility(View.VISIBLE);
                 }
                 catch(NumberFormatException e){
                     Log.d(TAG, "Caught exception while changing final amount");

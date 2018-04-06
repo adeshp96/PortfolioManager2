@@ -45,30 +45,10 @@
             android:id="@+id/add_activity_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:inputType="textCapWords"
             android:hint="Enter purpose" />
 
     </LinearLayout>
-    <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
-        <!--<TextView-->
-            <!--android:id="@+id/return_text"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textSize="25dp"-->
-            <!--android:layout_alignParentLeft="true"-->
-            <!--android:text="              Returns:    "/>-->
-
-        <!--<EditText-->
-            <!--android:id="@+id/add_activity_returns"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_toRightOf="@id/return_text"-->
-            <!--android:inputType="number"-->
-            <!--android:hint="Enter returns" />-->
-    <!--</RelativeLayout>-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -99,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:text="Horizon:                   "/>
+            android:text="Period:                      "/>
 
         <EditText
             android:id="@+id/add_activity_horizon"
@@ -126,7 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint=" Enter in years" />
+            android:hint="Enter in Rupees" />
     </LinearLayout>
 
     <LinearLayout
@@ -149,30 +129,14 @@
              />
     </LinearLayout>
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:id="@+id/add_activity_relative_is_tax_saving">-->
-        <!--<TextView-->
-            <!--android:id="@+id/is_tax_saving_text"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textSize="25dp"-->
-            <!--android:text="Tax Saving?             "/>-->
-
-        <!--<CheckBox-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/add_activity_is_tax_saving"/>-->
-    <!--</LinearLayout>-->
-
 
 
     <Button
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_marginTop="5dp"
         android:layout_gravity="center|bottom"
+        android:id="@+id/add_activity_submit_button"
         android:text="Submit"
         android:onClick="Submit"/>
 </LinearLayout>

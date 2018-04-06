@@ -1,6 +1,8 @@
 package com.iiitd.finance.portfolimanager2;
 
 import java.util.ArrayList;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class Solution {
     ArrayList<MutualFund> mutual_funds = new ArrayList<>();
@@ -13,14 +15,21 @@ public class Solution {
         //Private constructor to prevent instantiation outside self
     }
     static String TAG = "Solution";
-    public static Solution getSolution(Requirement requirement, ArrayList<MutualFund>
-            mutual_funds){
+    public static Solution getSolution(Requirement requirement){
         Solution solution = new Solution();
         solution.requirement = requirement;
-        for (int i = 0; i < Math.min(mutual_funds.size(), 3); i++){
-            solution.mutual_funds.add(mutual_funds.get(i));
+        ArrayList<MutualFund> proposed_mutual_funds = Manager.getMutualFunds(requirement);
+        TreeSet<String> AMC_utilized = new TreeSet<>();
+        for (int i = 0; i < proposed_mutual_funds.size() && solution.mutual_funds.size() < 3; i++){
+            String AMC_name = proposed_mutual_funds.get(i).name.split(" ")[0];
+            if(AMC_utilized.contains(AMC_name))
+                    continue;
+            AMC_utilized.add(AMC_name);
+            solution.mutual_funds.add(proposed_mutual_funds.get(i));
             solution.proportions.add(0.33333f);
-            solution.actual_returns += solution.proportions.get(i) * solution.mutual_funds.get(i)
+            solution.actual_returns += solution.proportions.get(solution.proportions.size() - 1) *
+                    solution
+                    .mutual_funds.get(solution.mutual_funds.size() - 1)
                     .returns;
 
         }
