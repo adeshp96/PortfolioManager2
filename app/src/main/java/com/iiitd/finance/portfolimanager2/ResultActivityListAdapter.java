@@ -56,7 +56,7 @@ public class ResultActivityListAdapter extends ArrayAdapter{
         label.setText("Expected Gain :                               Rs " + String.valueOf
                 (ota_return));
         label = view.findViewById(R.id.ota_local_maturity_amount);
-        label.setText("Expected Maturity Amount :         Rs " + String.valueOf(solution
+        label.setText("Expected Maturity Amount :        Rs " + String.valueOf(solution
                 .requirement.final_amount));
         MutualFund mf;
         TreeMap<Integer, String> risk_inverse_map = new TreeMap<>();

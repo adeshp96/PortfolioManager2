@@ -8,6 +8,7 @@ public class Requirement implements Serializable {
     public String purpose;
     public int final_amount = 100000, present_amount;
     boolean is_tax_saving;
+    boolean is_retirement_saving;
     public Requirement(float returns, int risk, int horizon) {
         this.returns = returns;
         this.risk = risk;
@@ -15,7 +16,10 @@ public class Requirement implements Serializable {
     }
 
     public Requirement(float returns, int risk, int horizon, String purpose, int
-            present_amount, int final_amount, boolean is_tax_saving) {
+            present_amount, int final_amount, boolean is_tax_saving, boolean is_retirement_saving) {
+        if(is_retirement_saving && is_tax_saving)
+            throw new RuntimeException("Requirement cannot be both tax saving and retirement " +
+                    "saving");
         this.returns = returns;
         this.horizon = horizon;
         this.risk = risk;
@@ -23,6 +27,7 @@ public class Requirement implements Serializable {
         this.final_amount = final_amount;
         this.present_amount = present_amount;
         this.is_tax_saving = is_tax_saving;
+        this.is_retirement_saving = is_retirement_saving;
     }
 
     @Override

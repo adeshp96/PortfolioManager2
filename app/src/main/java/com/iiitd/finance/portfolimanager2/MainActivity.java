@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
         Manager.LoadDetails(assetManager);
         adapter = new RequirementsListAdapter(getApplicationContext(), null);
         adapter.requirements.add(new Requirement(1.2f, 0, 2, "Education",
-                100000,100000, true));
+                100000,100000, false, true));
         ListView listView = findViewById(R.id.requirements_list);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

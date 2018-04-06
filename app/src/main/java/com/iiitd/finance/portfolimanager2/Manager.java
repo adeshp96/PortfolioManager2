@@ -16,6 +16,7 @@ class Manager{
     private static String TAG = "Manager";
     private static ArrayList<MutualFund> equity_mutual_funds = new ArrayList<MutualFund> ();
     private static ArrayList<MutualFund> debt_mutual_funds = new ArrayList<MutualFund> ();
+    private static ArrayList<MutualFund> retirement_saving_mutual_funds = new ArrayList<MutualFund> ();
     private static AssetManager assetManager = null;
     private static void LoadMFFromFiles(String mf_filename, String risks_filename,
                                         ArrayList<MutualFund> output){
@@ -102,8 +103,12 @@ class Manager{
         LoadMFFromFiles("equity.csv", "equity-risks.csv", equity_mutual_funds);
         LoadMFFromFiles("equity-tax-saving.csv", "equity-tax-saving-risks.csv",
                 equity_mutual_funds);
+        LoadMFFromFiles("retirement-combined.csv", "retirement-combined-risks.csv",
+                retirement_saving_mutual_funds);
         Log.d(TAG, "Equity funds matched (Including Tax saving) " + equity_mutual_funds.size());
         Log.d(TAG, "Debt funds matched "+debt_mutual_funds.size());
+        Log.d(TAG, "Retirement-Saving mutual funds matched "+ retirement_saving_mutual_funds.size
+                ());
 
     }
 
@@ -120,6 +125,10 @@ class Manager{
         if(requirement.is_tax_saving){
             type = "equity";
             categories.add("EQ-TS");
+        }
+        if(requirement.is_retirement_saving){
+            type = "retirement-saving";
+            categories.add("*");
         }
         else if(horizon <= 3){
             if(risk == 0){
@@ -185,9 +194,6 @@ class Manager{
                     if(mf.risk <= risk)
                         output.add(mf);
                 }
-//                else
-//                    System.out.println("Category different " + categories.get(0) + " " + mf
-//                            .category);
             }
         }
         if(type.equals("debt")){
@@ -197,9 +203,12 @@ class Manager{
                     if(mf.risk <= risk)
                         output.add(mf);
                 }
-//                else
-//                    System.out.println("Category different " + categories.get(0) + " " + mf
-//                            .category);
+            }
+        }
+        if(type.equals("retirement-saving")){
+            for(int i = 0; i < retirement_saving_mutual_funds.size(); i++){
+                MutualFund mf = retirement_saving_mutual_funds.get(i);
+                    output.add(mf);
             }
         }
         System.out.println("output size " + output.size());

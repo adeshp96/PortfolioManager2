@@ -25,17 +25,20 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
     int risk;
     int final_amount, present_amount;
     boolean is_tax_saving = false;
+    boolean is_retirement_saving = false;
     String purpose;
     Boolean risk_enabled = false;
     Boolean name_enabled = false;
     String[] items_risk = new String[]{"Low", "Medium", "High"};
-    String[] items_purpose = new String[]{"Education", "Marriage", "Tour", "Tax-Saving", "Custom"};
+    String[] items_purpose = new String[]{"Education", "Marriage", "Tour", "Tax-Saving",
+            "Retirement-Saving","Custom"};
     TreeMap<String, Integer> risk_map = new TreeMap<>();
     static Float inflation_rate = 1.1f;
     static String TAG = "AddActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         risk_map.put("Education", 0); risk_map.put("Marriage", 1); risk_map.put("Tour", 2);
+        risk_map.put("Retirement-Saving", 0);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
         getActionBar().setDisplayHomeAsUpEnabled(false);
@@ -196,12 +199,14 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
             final_amount = Integer.parseInt(final_amount_view_text.getText().toString());
             if(purpose.equals("Tax-Saving"))
                 is_tax_saving = true;
+            if(purpose.equals("Retirement-Saving"))
+                is_retirement_saving = true;
         } catch (Exception e) {
             Toast.makeText(this, "Some error occurred in input", Toast.LENGTH_SHORT).show();
             return;
         }
         Requirement new_requirement = new Requirement(returns, risk, horizon, purpose,
-                present_amount, final_amount, is_tax_saving);
+                present_amount, final_amount, is_tax_saving, is_retirement_saving);
         Bundle b = new Bundle();
         b.putSerializable("requirement", new_requirement);
         Intent intent = new Intent();
