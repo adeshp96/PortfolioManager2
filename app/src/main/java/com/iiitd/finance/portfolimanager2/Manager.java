@@ -100,8 +100,11 @@ class Manager{
         LoadMFFromFiles("debt.csv", "debt-risks.csv",
                 debt_mutual_funds);
         LoadMFFromFiles("equity.csv", "equity-risks.csv", equity_mutual_funds);
-        Log.d(TAG, "Equity funds matched " + equity_mutual_funds.size());
+        LoadMFFromFiles("equity-tax-saving.csv", "equity-tax-saving-risks.csv",
+                equity_mutual_funds);
+        Log.d(TAG, "Equity funds matched (Including Tax saving) " + equity_mutual_funds.size());
         Log.d(TAG, "Debt funds matched "+debt_mutual_funds.size());
+
     }
 
 
@@ -114,7 +117,11 @@ class Manager{
         output.add(new MutualFund("lalala", "LC", 0.11f, 1));
         ArrayList<String> categories = new ArrayList<>();
         String type;
-        if(horizon <= 3){
+        if(requirement.is_tax_saving){
+            type = "equity";
+            categories.add("EQ-TS");
+        }
+        else if(horizon <= 3){
             if(risk == 0){
                 type = "debt";
                 categories.add("DT-LIQ");

@@ -1,15 +1,10 @@
 package com.iiitd.finance.portfolimanager2;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.util.Pair;
+import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class ResultActivity extends Activity {
     ArrayList<Requirement> requirements = null;
