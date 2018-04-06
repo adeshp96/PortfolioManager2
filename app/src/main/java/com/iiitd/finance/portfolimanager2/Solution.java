@@ -10,7 +10,8 @@ public class Solution {
     Requirement requirement;
     Float lumpsum_investment_amount = null;
     Float sip_investment_amount = null;
-    Float actual_returns = 0f; //Of form 1.10
+    Float actual_yearly_returns = 0f; //Of form 1.10
+    Float actual_total_returns = 0f; //Of form 1.20
     private Solution(){
         //Private constructor to prevent instantiation outside self
     }
@@ -27,15 +28,16 @@ public class Solution {
             AMC_utilized.add(AMC_name);
             solution.mutual_funds.add(proposed_mutual_funds.get(i));
             solution.proportions.add(0.33333f);
-            solution.actual_returns += solution.proportions.get(solution.proportions.size() - 1) *
+            solution.actual_yearly_returns += solution.proportions.get(solution.proportions.size() - 1) *
                     solution
                     .mutual_funds.get(solution.mutual_funds.size() - 1)
                     .returns;
 
         }
-        Float compounded_interest_yearly = (float)Math.pow(solution.actual_returns, requirement
+        Float compounded_interest_yearly = (float)Math.pow(solution.actual_yearly_returns, requirement
                 .horizon);
-        solution.lumpsum_investment_amount = requirement.final_amount/compounded_interest_yearly;
+        solution.actual_total_returns = compounded_interest_yearly;
+        solution.lumpsum_investment_amount = requirement.final_amount/solution.actual_total_returns;
         /*A = P * [{(1+i)^n – 1 }/i]
         A = P * P2
         A = final amount
@@ -44,7 +46,7 @@ public class Solution {
         i = interest rate for that tenure (example if yearly return is 24% , but payments are made
         monthly then i = 24/12 = 2%)
         */
-        Float i = (solution.actual_returns - 1)/12;
+        Float i = (solution.actual_yearly_returns - 1)/12;
         int n = (solution.requirement.horizon * 12);
         Float p2 = (float)(Math.pow(i + 1, n) - 1 )/i;
         solution.sip_investment_amount = solution.requirement.final_amount/p2;

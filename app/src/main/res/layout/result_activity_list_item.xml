@@ -19,6 +19,13 @@
         android:textSize="16dip"
         android:textStyle="bold" />
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/local_returns"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dip"
+        android:textSize="16dip"
+        android:textStyle="bold" />
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:text="INVESTMENT OPTIONS:"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

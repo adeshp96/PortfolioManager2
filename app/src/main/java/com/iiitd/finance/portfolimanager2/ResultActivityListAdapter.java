@@ -33,7 +33,8 @@ public class ResultActivityListAdapter extends ArrayAdapter{
         label.setText(solution.requirement.purpose.toString());
         label = view.findViewById(R.id.local_horizon);
         label.setText("Investment Period : " + String.valueOf(solution.requirement.horizon)+" years");
-
+        label = view.findViewById(R.id.local_returns);
+        label.setText("Returns : " + Math.round((solution.actual_total_returns - 1)*100)+" %");
         label = view.findViewById(R.id.local_sip);
         label.setText("Investment per Month :               Rs " + solution.sip_investment_amount.toString());
         label = view.findViewById(R.id.sip_local_total_deposits);
