@@ -1,7 +1,6 @@
 package com.iiitd.finance.portfolimanager2;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,26 +33,32 @@ public class ResultActivityListAdapter extends ArrayAdapter{
         label.setText(solution.requirement.purpose.toString());
         label = view.findViewById(R.id.local_horizon);
         label.setText("Investment Period : " + String.valueOf(solution.requirement.horizon)+" years");
-
+        label = view.findViewById(R.id.local_returns);
+        label.setText("Returns : " + Math.round((solution.actual_total_returns - 1)*100)+" %");
         label = view.findViewById(R.id.local_sip);
-        label.setText("Investment per Month :                  " + solution.sip_investment_amount.toString());
+        label.setText("Investment per Month :               Rs " + solution.sip_investment_amount.toString());
         label = view.findViewById(R.id.sip_local_total_deposits);
         float sip_total_deposit = solution.sip_investment_amount * 12 *solution.requirement.horizon;
-        label.setText("Total Deposits :                                 " + String.valueOf(sip_total_deposit));
+        label.setText("Total Deposit :                               Rs " + String.valueOf
+                (sip_total_deposit));
         label = view.findViewById(R.id.sip_local_total_return);
         float sip_return = solution.requirement.final_amount - sip_total_deposit;
-        label.setText("Expected Returns :                            " + String.valueOf(sip_return));
+        label.setText("Expected Gain :                             Rs " + String.valueOf
+                (sip_return));
         label = view.findViewById(R.id.sip_local_maturity_amount);
-        label.setText("Expected Maturity Amount :          " + String.valueOf(solution.requirement.final_amount));
+        label.setText("Expected Maturity Amount :      Rs " + String.valueOf(solution.requirement.final_amount));
 
 
         label = view.findViewById(R.id.local_lumpsum);
-        label.setText("Investment (Total Deposit) :            " + solution.lumpsum_investment_amount.toString());
+        label.setText("Total Deposit :                                 Rs " + solution
+                .lumpsum_investment_amount.toString());
         label = view.findViewById(R.id.ota_local_total_return);
         float ota_return = solution.requirement.final_amount - solution.lumpsum_investment_amount;
-        label.setText("Expected Returns :                            " + String.valueOf(ota_return));
+        label.setText("Expected Gain :                               Rs " + String.valueOf
+                (ota_return));
         label = view.findViewById(R.id.ota_local_maturity_amount);
-        label.setText("Expeced Maturity Amount :            " + String.valueOf(solution.requirement.final_amount));
+        label.setText("Expected Maturity Amount :        Rs " + String.valueOf(solution
+                .requirement.final_amount));
         MutualFund mf;
         TreeMap<Integer, String> risk_inverse_map = new TreeMap<>();
         risk_inverse_map.put(0, "Low"); risk_inverse_map.put(1, "Medium"); risk_inverse_map.put(2,
@@ -61,7 +66,7 @@ public class ResultActivityListAdapter extends ArrayAdapter{
         TreeMap<Integer, String> rating_map = new TreeMap<>();
         rating_map.put(1, "*"); rating_map.put(2, "**");
         rating_map.put(3, "***"); rating_map.put(4, "****");
-        rating_map.put(4, "****");
+        rating_map.put(5, "*****");
         if(mutual_fund_list.size() >= 1)
         {
             mf = mutual_fund_list.get(0);
@@ -69,8 +74,8 @@ public class ResultActivityListAdapter extends ArrayAdapter{
             label.setText(mf.name);
             label = view.findViewById(R.id.local_mf1_risk);
             label.setText("Risk: "+risk_inverse_map.get(mf.risk));
-            label = view.findViewById(R.id.local_mf1_rating);
-            label.setText(rating_map.get(mf.rating));
+//            label = view.findViewById(R.id.local_mf1_rating);
+//            label.setText(rating_map.get(mf.rating));
             label = view.findViewById(R.id.local_mf1_proportion);
             label.setText(Math.round(proportions_list.get(0)* 100)+"%");
         }
@@ -81,8 +86,8 @@ public class ResultActivityListAdapter extends ArrayAdapter{
             label.setText(mf.name);
             label = view.findViewById(R.id.local_mf2_risk);
             label.setText("Risk: "+risk_inverse_map.get(mf.risk));
-            label = view.findViewById(R.id.local_mf2_rating);
-            label.setText(rating_map.get(mf.rating));
+//            label = view.findViewById(R.id.local_mf2_rating);
+//            label.setText(rating_map.get(mf.rating));
             label = view.findViewById(R.id.local_mf2_proportion);
             label.setText(Math.round(proportions_list.get(1)* 100)+"%");
         }
@@ -93,8 +98,8 @@ public class ResultActivityListAdapter extends ArrayAdapter{
             label.setText(mf.name);
             label = view.findViewById(R.id.local_mf3_risk);
             label.setText("Risk: "+risk_inverse_map.get(mf.risk));
-            label = view.findViewById(R.id.local_mf3_rating);
-            label.setText(rating_map.get(mf.rating));
+//            label = view.findViewById(R.id.local_mf3_rating);
+//            label.setText(rating_map.get(mf.rating));
             label = view.findViewById(R.id.local_mf3_proportion);
             label.setText(Math.round(proportions_list.get(2)* 100)+"%");
         }

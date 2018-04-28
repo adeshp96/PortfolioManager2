@@ -1,18 +1,18 @@
 package com.iiitd.finance.portfolimanager2;
 
-import android.content.Intent;
-import android.opengl.Visibility;
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,16 +24,21 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
     int horizon;
     int risk;
     int final_amount, present_amount;
+    boolean is_tax_saving = false;
+    boolean is_retirement_saving = false;
     String purpose;
-    Boolean custom_enabled = false;
+    Boolean risk_enabled = false;
+    Boolean name_enabled = false;
     String[] items_risk = new String[]{"Low", "Medium", "High"};
-    String[] items_purpose = new String[]{"Education", "Marriage", "Custom"};
+    String[] items_purpose = new String[]{"Education", "Marriage", "Travel", "Tax-Saving",
+            "Retirement-Saving","Custom"};
     TreeMap<String, Integer> risk_map = new TreeMap<>();
     static Float inflation_rate = 1.1f;
     static String TAG = "AddActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        risk_map.put("Education", 0); risk_map.put("Marriage", 1); risk_map.put("World Tour", 2);
+        risk_map.put("Education", 0); risk_map.put("Marriage", 1); risk_map.put("Travel", 2);
+        risk_map.put("Retirement-Saving", 0);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
         getActionBar().setDisplayHomeAsUpEnabled(false);
@@ -41,18 +46,18 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout
                 .simple_spinner_dropdown_item, items_risk);
         dropdown.setAdapter(adapter);
-//        dropdown.setOnItemSelectedListener(this);
 
         dropdown = findViewById(R.id.add_activity_purpose);
         adapter = new ArrayAdapter<>(this, android.R.layout
                 .simple_spinner_dropdown_item, items_purpose);
         dropdown.setAdapter(adapter);
         dropdown.setOnItemSelectedListener(this);
-        disableCustom();
+        disableRisk();
 
         final EditText present_amount_edit_text = findViewById(R.id.add_activity_present_amount);
         final TextView final_amount_text_view = findViewById(R.id.add_activity_final_amount);
-
+        final Button submit_button = findViewById(R.id.add_activity_submit_button);
+        submit_button.setVisibility(View.GONE);
         present_amount_edit_text.addTextChangedListener(new TextWatcher() {
             //Reference: https://stackoverflow.com/questions/20824634/android-on-text-change-listener
             @Override
@@ -69,6 +74,7 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
                 try{
                     if(present_amount_edit_text.getText().toString().length() == 0) {
                         final_amount_text_view.setText("");
+                        submit_button.setVisibility(View.GONE);
                         return;
                     }
 
@@ -79,6 +85,7 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
                     Integer final_amount = Math.round((int)(Math.pow(inflation_rate, temp_horizon)
                             * present_amount));
                     final_amount_text_view.setText(""+final_amount);
+                    submit_button.setVisibility(View.VISIBLE);
                 }
                 catch(NumberFormatException e){
                     Log.d(TAG, "Caught exception while changing final amount");
@@ -143,29 +150,46 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
             }
         });
     }
-    private void disableCustom(){
+    private void enableName(){
+        name_enabled = true;
+        View view = findViewById(R.id.add_activity_relative_name);
+        view.setVisibility(View.VISIBLE);
+    }
+    private void disableName(){
+        name_enabled = false;
+        View view = findViewById(R.id.add_activity_relative_name);
+        view.setVisibility(View.GONE);
+    }
+    private void disableRisk(){
         System.out.println("Disabling custom");
-        custom_enabled = false;
+        risk_enabled = false;
         View view = findViewById(R.id.add_activity_relative_risk);
         view.setVisibility(View.GONE);
     }
-    private void enableCustom(){
+    private void enableRisk(){
         System.out.println("Enabling custom");
-        custom_enabled = true;
+        risk_enabled = true;
         View view = findViewById(R.id.add_activity_relative_risk);
         view.setVisibility(View.VISIBLE);
     }
     public void Submit(View view){
-        Spinner spinner = findViewById(R.id.add_activity_purpose);
-        purpose = spinner.getSelectedItem().toString();
-        if(custom_enabled) {
+        if(name_enabled){
+            EditText name_edit_text = findViewById(R.id.add_activity_name);
+            purpose = name_edit_text.getText().toString();
+        }
+        else {
+            Spinner spinner = findViewById(R.id.add_activity_purpose);
+            purpose = spinner.getSelectedItem().toString();
+        }
+
+        if(risk_enabled) {
             Spinner risk_spinner = findViewById(R.id.add_activity_risk);
             risk = risk_spinner.getSelectedItemPosition();
         }
         else {
             risk = risk_map.get(purpose);
         }
-        System.out.println(custom_enabled + " "+ risk);
+        System.out.println(risk_enabled + " "+ risk);
         try {
             EditText horizon_edit_text = findViewById(R.id.add_activity_horizon);
             horizon = Integer.parseInt(horizon_edit_text.getText().toString());
@@ -173,13 +197,16 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
             present_amount = Integer.parseInt(present_amount_edit_text.getText().toString());
             TextView final_amount_view_text = findViewById(R.id.add_activity_final_amount);
             final_amount = Integer.parseInt(final_amount_view_text.getText().toString());
-
+            if(purpose.equals("Tax-Saving"))
+                is_tax_saving = true;
+            if(purpose.equals("Retirement-Saving"))
+                is_retirement_saving = true;
         } catch (Exception e) {
             Toast.makeText(this, "Some error occurred in input", Toast.LENGTH_SHORT).show();
             return;
         }
         Requirement new_requirement = new Requirement(returns, risk, horizon, purpose,
-                present_amount, final_amount);
+                present_amount, final_amount, is_tax_saving, is_retirement_saving);
         Bundle b = new Bundle();
         b.putSerializable("requirement", new_requirement);
         Intent intent = new Intent();
@@ -189,16 +216,27 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
     }
 
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-        if(parent.getItemAtPosition(position).toString().equals("Custom"))
+        if(parent.getItemAtPosition(position).toString().equals("Custom")) {
             //enable different fields
-            enableCustom();
-        else
-            disableCustom();
+            enableRisk();
+            enableName();
+        }
+        else if (parent
+                .getItemAtPosition(position).toString().equals("Tax-Saving"))
+        {
+            enableRisk();
+            disableName();
+        }
+        else{
+            disableRisk();
+            disableName();
+        }
+
 
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
-        disableCustom();
+        disableRisk();
     }
 
 
