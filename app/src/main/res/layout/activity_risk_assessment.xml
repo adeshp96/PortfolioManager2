@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RiskAssessment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Risk Assessment Questionnaire"
+            android:gravity="center"
+            android:textSize="24dp"
+            android:layout_marginBottom="20dp"
+            android:layout_margin="15dp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border">
+        <TextView
+            android:id="@+id/q1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="left"
+            android:text="1. Your Age is : "
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvRg"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:showDividers="beginning|middle|end"
+            android:layout_marginTop="10dp"
+            android:id="@+id/q1_rg" >
+            <RadioButton
+                android:id="@+id/q1_rb1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Under 30"
+                android:checked="false" />
+            <RadioButton
+                android:id="@+id/q1_rb2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30-40"
+                android:checked="false" />
+            <RadioButton
+                android:id="@+id/q1_rb3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="41-50"
+                android:checked="false" />
+            <RadioButton
+                android:id="@+id/q1_rb4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="51 and above"
+                android:checked="false" />
+
+        </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border">
+            <TextView
+                android:id="@+id/q3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="left"
+                android:text="Your annual takeaway Income"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRg"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:showDividers="beginning|middle|end"
+                android:layout_marginTop="10dp"
+                android:id="@+id/q3_rg" >
+                <RadioButton
+                    android:id="@+id/q3_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="less than 2,00,000"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q3_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2,00,000-4,00,000"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q3_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4,00,000-6,00,000"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q3_rb4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6,00,000-10,00,000"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q3_rb5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="more than 10,00,000"
+                    android:checked="false" />
+
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border">
+            <TextView
+                android:id="@+id/q4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="left"
+                android:text="You are financially responsible for (including yourself):"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRg"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:showDividers="beginning|middle|end"
+                android:layout_marginTop="10dp"
+                android:id="@+id/q4_rg" >
+                <RadioButton
+                    android:id="@+id/q4_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 person"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q4_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2-3 person"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q4_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4-5 persons"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q4_rb4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=">5 persons"
+                    android:checked="false" />
+
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@drawable/border">
+            <TextView
+                android:id="@+id/q5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="left"
+                android:text="Your current job/business/career :"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRg"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:showDividers="beginning|middle|end"
+                android:layout_marginTop="10dp"
+                android:id="@+id/q5_rg" >
+                <RadioButton
+                    android:id="@+id/q5_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="is secure"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q5_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="is not secure and I do not have much extra wealth"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q5_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="insecure but doesnt matter as I have enough wealth"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q5_rb4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="is not dependable"
+                    android:checked="false" />
+
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border">
+            <TextView
+                android:id="@+id/q6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="left"
+                android:text="After an investment, how do you feel:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRg"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:showDividers="beginning|middle|end"
+                android:layout_marginTop="10dp"
+                android:id="@+id/q6_rg" >
+                <RadioButton
+                    android:id="@+id/q6_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="excited"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q6_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="satisfied"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q6_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="doubtful"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q6_rb4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="regret the decision"
+                    android:checked="false" />
+
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border">
+            <TextView
+                android:id="@+id/q7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="left"
+                android:text=" You have saved a long to buy a car. A week before you buy the car, you lose your job. "
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRg"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:showDividers="beginning|middle|end"
+                android:layout_marginTop="10dp"
+                android:id="@+id/q7_rg" >
+                <RadioButton
+                    android:id="@+id/q7_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="postpone your purchase"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q7_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="buy new car but less expensive"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q7_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="buy thhe car which was planned"
+                    android:checked="false" />
+
+
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border">
+            <TextView
+                android:id="@+id/q8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="left"
+                android:text=" You invest Rs1,00,000 in a share that goes down by 8% the next day. You"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRg"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:showDividers="beginning|middle|end"
+                android:layout_marginTop="10dp"
+                android:id="@+id/q8_rg" >
+                <RadioButton
+                    android:id="@+id/q8_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="invest another Rs 1,00,000 at a lower price."
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q8_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="book your loss and invest in fixed deposits or bonds"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q8_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="do not bother as you are confident of company due to the research done."
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q8_rb4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hold on till price returns to your cost price and sell it."
+                    android:checked="false" />
+
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border">
+            <TextView
+                android:id="@+id/q9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="left"
+                android:text=" What is your practice on saving money"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRg"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:showDividers="beginning|middle|end"
+                android:layout_marginTop="10dp"
+                android:id="@+id/q9_rg" >
+                <RadioButton
+                    android:id="@+id/q9_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dont like to save"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q9_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I want to save but mt financial commitments restricts me."
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q9_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I save whenever possible"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q9_rb4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I save a fixed part of salary without an exception"
+                    android:checked="false" />
+
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border">
+            <TextView
+                android:id="@+id/q10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="left"
+                android:text="How would you honestly describe yourself as a risk-taker?"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRg"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:showDividers="beginning|middle|end"
+                android:layout_marginTop="10dp"
+                android:id="@+id/q10_rg" >
+                <RadioButton
+                    android:id="@+id/q10_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="reckless"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q10_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="take calculated and evaluated risk"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q10_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="low risk taker"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q10_rb4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cant take risk at all"
+                    android:checked="false" />
+
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border">
+            <TextView
+                android:id="@+id/q11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="left"
+                android:text="You have invested in shares that you expect will become 5-baggers in 2-3 years. These share
+     prices drop 60% soon after you buy them. You:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRg"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:showDividers="beginning|middle|end"
+                android:layout_marginTop="10dp"
+                android:id="@+id/q11_rg" >
+                <RadioButton
+                    android:id="@+id/q11_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sell"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q11_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="buy more to average out"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q11_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="wait and watch more time"
+                    android:checked="false" />
+
+
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border">
+            <TextView
+                android:id="@+id/q12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="left"
+                android:text="You are offered a job by a company with a bright future. Which compensation option would
+    you choose?"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRg"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:showDividers="beginning|middle|end"
+                android:layout_marginTop="10dp"
+                android:id="@+id/q12_rg" >
+                <RadioButton
+                    android:id="@+id/q12_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You are offered a job by a company with a bright future. Which compensation option would
+    you choose?"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q12_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="upfront bonus of Rs1,00,000."
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q12_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10% pay increase on your salary"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/q12_rb4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="stock with value of Rs 1,00,000 with good further appreciation"
+                    android:checked="false" />
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:layout_marginTop="30dp"
+            android:text="Submit"
+            android:onClick="CalculateRisk"
+            />
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

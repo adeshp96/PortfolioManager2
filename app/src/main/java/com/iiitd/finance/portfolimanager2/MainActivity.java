@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -17,10 +18,18 @@ import java.util.ArrayList;
 public class MainActivity extends Activity {
     private static String TAG = "MainActivity";
     private static int AddActivityRequestCode = 0;
+    String calculatedRisk;
     RequirementsListAdapter adapter = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        calculatedRisk = intent.getStringExtra("risk");
+        TextView textView = (TextView)findViewById(R.id.user_risk);
+        if(textView!=null) {
+            String text = "Your Risk Level : " + calculatedRisk;
+            textView.setText(text);
+        }
         setContentView(R.layout.activity_main);
         AssetManager assetManager = getAssets();
         Manager.LoadDetails(assetManager);

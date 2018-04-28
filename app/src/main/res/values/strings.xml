@@ -4,4 +4,6 @@
     <string name="title_activity_add">Add Requirement</string>
     <string name="add_actiivty_submit">Submit</string>
     <string name="title_activity_compute">Results</string>
+    <string name="title_activity_risk_assessment">RiskAssessment</string>
+    <string name="title_activity_user_risk">UserRisk</string>
 </resources>

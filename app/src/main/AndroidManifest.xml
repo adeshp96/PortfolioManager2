@@ -10,6 +10,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+
+
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".AddActivity"
+            android:label="@string/title_activity_add"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ResultActivity"
+            android:label="@string/title_activity_compute"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".RiskAssessment"
+            android:label="@string/title_activity_risk_assessment"></activity>
+        <activity
+            android:name=".StartActivity"
+            android:label="@string/title_activity_start">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,13 +39,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddActivity"
-            android:label="@string/title_activity_add"
-            android:parentActivityName=".MainActivity"/>
-        <activity
-            android:name=".ResultActivity"
-            android:label="@string/title_activity_compute"
-            android:parentActivityName=".MainActivity"/>
+            android:name=".UserRiskDisplayActivity"
+            android:label="@string/title_activity_user_risk"></activity>
     </application>
 
 </manifest>
